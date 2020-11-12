@@ -1,0 +1,7 @@
+/node_modules/
+/business-website-psd-template/
+/dist/
+/app/libs/plagins/
+/.git/
+/**/*.psd
+/**/Thumbs.db
