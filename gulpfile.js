@@ -41,7 +41,7 @@ function styles() {
 		.pipe(concat('libs.css'))
 		.pipe(rename('libs.min.css'))
 		.pipe(autoprefixer({
-			overrideBrowserlist: ['last 10 versions'],
+			overrideBrowserlist: ['last 8 versions'],
 			grid: true
 		}))
 		.pipe(stripCssComments())
@@ -52,6 +52,7 @@ function styles() {
 		}))) // Opt., comment out when debugging
 		.pipe(sourcemaps.write(''))
 		.pipe(dest('app/css/'))
+		.pipe(browserSync.stream({stream:true}))
 }
 
 function browsersync() {
@@ -75,7 +76,7 @@ function scripts() {
 		.pipe(concat('scripts.min.js'))
 		.pipe(uglify())
 		.pipe(dest('app/js/'))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.stream({stream:true}))
 }
 
 function images() {
@@ -120,4 +121,4 @@ exports.cleandest = cleandest;
 
 exports.build = series(cleandest, styles, scripts, images, buildcopy);
 
-exports.default = parallel(styles, scripts, browsersync, startwatch)
+exports.default = parallel(styles, scripts, browsersync, startwatch);
