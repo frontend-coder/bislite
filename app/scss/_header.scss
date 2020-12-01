@@ -24,39 +24,53 @@
   height: 127px;
 }
 
-.top_nav ul li {
-  display: inline-block;
-
-  & a {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #000000;
-  }
-
-  & a:hover {
-    color: #2aacc8;
-  }
-}
-
+// начало меню
 .header__menu {
   margin-right: 20px;
 }
 
-.header__menu li +li {
-  margin-left: 50px;
+.header__menu ul li {
+  display: inline-block;
 }
 
 .header__menu a {
-  padding-top: 9px;
-  padding-bottom: 13px;
+  padding: 9px 20px 13px;
   font-family: "arial", sans-serif;
   font-weight: 700;
   font-size: 13px;
   line-height: 20px;
+  text-decoration: none;
   text-transform: uppercase;
+  color: #000000;
+  transition: all 0.3s;
+
+  &:hover {
+    color: #2aacc8;
+  }
+}
+
+.header__menu ul li >a {
+  border-top: 5px solid transparent;
+
+  &:hover {
+    border-top: 5px solid #2aacc8;
+  }
+}
+
+.header__menu ul li ul li {
+  border-top: 1px solid #e7e7e7;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.header__menu ul li ul li >a {
+  border-top: none;
+
+  &:hover {
+    border-top: none;
+  }
 }
 
 .drop-down__list {
@@ -77,12 +91,14 @@
 
 .drop-down__list a {
   display: block;
+  border-top: none;
   padding: 12px 0 12px 11px;
   font-weight: 400;
   text-transform: none;
 }
 
 .drop-down__list a:hover {
+  border-top: none;
   color: #2aacc8;
 }
 
@@ -93,10 +109,6 @@
 .header__drop-down .drop-down__list li {
   display: block;
   margin-left: 0;
-}
-
-.header__drop-down.drop-down {
-  margin-left: 39px;
 }
 
 .header__drop-down.drop-down +.header__drop-down.drop-down {
@@ -118,11 +130,11 @@
 .header__drop-down >a::after {
   content: "";
   position: absolute;
-  right: -15px;
+  right: 1px;
   top: 13px;
   width: 7px;
   height: 5px;
-  background-image: url(../img/down-arrow.png);
+  background-image: url("../img/down-arrow.png");
 }
 
 @media only screen and (min-width: 961px) {
@@ -149,16 +161,16 @@
   transition: all 0.3s;
 }
 
+//конец меню
 .slider {
   padding: 20px 0 10px;
   background-color: #81e4ed;
 }
-.slider__inner {}
 
 .slider__item {
   border: 1px solid #000000;
   min-height: 440px;
-  background-image: url(../img/slider-bg.jpg);
+  background-image: url("../img/slider-bg.jpg");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
